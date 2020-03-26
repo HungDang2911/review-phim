@@ -1,0 +1,56 @@
+html {
+    font-size: 10px;
+}
+
+body {
+    color: #666;
+}
+
+h2 {
+    text-align: center;
+    font-size: 3.5rem;
+}
+
+.fas, .fa{
+    color: red;
+}
+
+.movie-name, .section-title-black {
+    color: black;
+}
+
+.section-title {
+    font-weight: 6050;
+}
+
+.movie {
+    margin: 50px 0;
+}
+
+.genres {
+    color: red;
+    font-family: 1.5rem;
+}
+
+.movie-name {
+    font-size: 3rem;
+}
+
+.poster-container {
+    flex: 1;
+}
+
+.movie-info {
+    flex: 2;
+    font-size: 1.4rem;
+}
+
+.movie-general-info {
+    line-height: 2em;
+}
+
+.movie-info-index {
+    font-weight: 600;
+    display: inline-block;
+    width: 100px;
+}
