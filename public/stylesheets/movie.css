@@ -19,6 +19,10 @@ h2 {
     color: black;
 }
 
+.section-title-white {
+    color: white;
+}
+
 .section-title {
     font-weight: 6050;
 }
@@ -53,4 +57,15 @@ h2 {
     font-weight: 600;
     display: inline-block;
     width: 100px;
+}
+
+
+
+.actors {
+    background-color: black;
+}
+
+
+footer {
+    background-color: black;
 }

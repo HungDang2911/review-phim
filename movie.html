@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="/public/stylesheets/vendors/bootstrap-4.4.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/stylesheets/vendors/fontawesome-free-5.13.0-web/css/all.min.css">
     <link rel="stylesheet" href="/public/stylesheets/vendors/fontawesome-free-5.13.0-web/css/fontawesome.min.css">
-    <link rel="stylesheet" href="/public/stylesheets/vendors/OwlCarousel2-2.3.4/dist/owl.carousel.min.js">
-    <link rel="stylesheet" href="/public/stylesheets/vendors/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.css">
     <link rel="stylesheet" href="/public/stylesheets/movie.css">
     <title>ReviewPhim</title>
 </head>
@@ -17,7 +15,7 @@
         <div class="container about-the-movie-wrapper py-1">
             <h2><i class="fa fa-question-circle" aria-hidden="true"></i></h2>
             <h2 class="section-title-black section-title">ABOUT THE MOVIE</h2>
-            <div class="d-flex flex-row movie">
+            <div class="d-flex flex-xl-row flex-column movie">
                 <div class="poster-container">
                     <img src="/public/images/Avengers.jpg" alt="" class="poster img-fluid">
                 </div>
@@ -42,8 +40,52 @@
             <h2 class="section-title-black section-title">DIRECTORS</h2>
         </div>
     </div>
-    <script src="/public/stylesheets/vendors/OwlCarousel2-2.3.4/docs/assets/vendors/jquery.min.js"></script>
-    <script src="/public/stylesheets/vendors/OwlCarousel2-2.3.4/docs/assets/owlcarousel/owl.carousel.min.js"></script>
+
+    <div class="actors">
+        <div class="container actors-wrapper py-1">
+            <h2><i class="fas fa-users"></i></h2>
+            <h2 class="section-title-white section-title">ACTORS</h2>
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4">
+                    <div class="col text-center">
+                        <img src="/public/images/robert-downey.jpg" alt="" class="img-fluid mx-auto">
+                    </div>
+                    <div class="col text-center">
+                        <img src="/public/images/robert-downey.jpg" alt="" class="img-fluid mx-auto">
+                    </div>
+                    <div class="col text-center">
+                        <img src="/public/images/robert-downey.jpg" alt="" class="img-fluid mx-auto">
+                    </div>
+                    <div class="col text-center">
+                        <img src="/public/images/robert-downey.jpg" alt="" class="img-fluid mx-auto">
+                    </div>
+                    <div class="col text-center">
+                        <img src="/public/images/robert-downey.jpg" alt="" class="img-fluid mx-auto">
+                    </div>
+                    <div class="col text-center">
+                        <img src="/public/images/robert-downey.jpg" alt="" class="img-fluid mx-auto">
+                    </div>
+                    <div class="col text-center">
+                        <img src="/public/images/robert-downey.jpg" alt="" class="img-fluid mx-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="reviews">
+        <div class="container reviews-wrapper py-1">
+            <h2><i class="fa fa-star" aria-hidden="true"></i></h2>
+            <h2></h2>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <img src="" alt="">
+        <span class="copyright">© Copyright 2017 ReviewPhim - All rights Reserved.</span>
+        </div>
+    </footer>
     <script src="/movie.js"></script>
 </body>
 </html>
