@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/stylesheets/vendors/bootstrap-4.4.1-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/public/stylesheets/vendors/fontawesome-free-5.13.0-web/css/all.min.css">
-    <link rel="stylesheet" href="/public/stylesheets/vendors/fontawesome-free-5.13.0-web/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/public/vendors/bootstrap-4.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/vendors/fontawesome-free-5.13.0-web/css/all.min.css">
+    <link rel="stylesheet" href="/public/vendors/fontawesome-free-5.13.0-web/css/fontawesome.min.css">
     <link rel="stylesheet" href="/public/stylesheets/movie.css">
     <title>ReviewPhim</title>
 </head>
 <body>
-    <header></header>
-    <div class="about-the-movie">
-        <div class="container about-the-movie-wrapper py-1">
+    <header>
+        
+    </header>
+    <section class="about-the-movie">
+        <div class="container about-the-movie-wrapper">
             <h2><i class="fa fa-question-circle" aria-hidden="true"></i></h2>
-            <h2 class="section-title-black section-title">ABOUT THE MOVIE</h2>
+            <h2 class="section-title-black">ABOUT THE MOVIE</h2>
             <div class="d-flex flex-xl-row flex-column movie">
                 <div class="poster-container">
                     <img src="/public/images/Avengers.jpg" alt="" class="poster img-fluid">
@@ -23,7 +25,7 @@
                     <h4 class="genres">ACTION</h4>
                     <h3 class="movie-name">Avengers</h3>
                     <div class="movie-general-info my-5">
-                        <i class="fas fa-play-circle"></i><span class="movie-info-index px-2">Production:</span><span class="movie-production">January 15, 2006 - France, United States</span><br>
+                        <i class="fas fa-play-circle"></i><span class="movie-info-index px-2">Release Date:</span><span class="movie-release-date">January 15, 2006</span><br>
                         <i class="fas fa-clock"></i><span class="movie-info-index px-2">Time:</span><span class="movie-time">2 hours, 40 minutes</span><br>
                         <i class="fas fa-globe-asia"></i></i><span class="movie-info-index px-2">Country:</span><span class="movie-country">France, England, United States</span><br>
                     </div>
@@ -32,61 +34,103 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="directors">
+    <section class="trailer">
+        <div class="container">
+            <h2><i class="fas fa-video"></i></h2>
+            <h2 class="section-title-white">TRAILERS</h2>
+            <iframe src="https://www.youtube.com/embed/TcMBFSGVi1c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+    </section>
+
+    <section class="directors">
         <div class="container directors-wrapper py-1">
             <h2><i class="fas fa-user-circle"></i></h2>
-            <h2 class="section-title-black section-title">DIRECTORS</h2>
+            <h2 class="section-title-black">DIRECTORS</h2>
         </div>
-    </div>
+    </section>
 
-    <div class="actors">
+    <section class="actors">
         <div class="container actors-wrapper py-1">
             <h2><i class="fas fa-users"></i></h2>
-            <h2 class="section-title-black section-title">ACTORS</h2>
+            <h2 class="section-title-black">ACTORS</h2>
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 actors-grid">
-                    <div class="col text-center actor-card">
+                    <div class="col text-center actor-card mb-5">
                         <div class="actor-card-wrapper">
                             <img src="/public/images/robert-downey.jpg" alt="" class="img-fluid mx-auto actor-picture">
                             <span class="actor-name">Robert Downey Jr.</span>
                             <a href="#" class="actor-card-overlay"></a>
                         </div>
                     </div>
-                    <div class="col text-center actor-card">
+                    <div class="col text-center actor-card mb-5">
                         <div class="actor-card-wrapper">
                             <img src="/public/images/robert-downey.jpg" alt="" class="img-fluid mx-auto actor-picture">
                             <span class="actor-name">Robert Downey Jr.</span>
                             <a href="#" class="actor-card-overlay"></a>
                         </div>
                     </div>
-                    <div class="col text-center actor-card">
+                    <div class="col text-center actor-card mb-5">
                         <div class="actor-card-wrapper">
                             <img src="/public/images/robert-downey.jpg" alt="" class="img-fluid mx-auto actor-picture">
                             <span class="actor-name">Robert Downey Jr.</span>
                             <a href="#" class="actor-card-overlay"></a>
                         </div>
                     </div>
-                    <div class="col text-center actor-card">
+                    <div class="col text-center actor-card mb-5">
                         <div class="actor-card-wrapper">
                             <img src="/public/images/robert-downey.jpg" alt="" class="img-fluid mx-auto actor-picture">
                             <span class="actor-name">Robert Downey Jr.</span>
                             <a href="#" class="actor-card-overlay"></a>
                         </div>
                     </div>
-                    
+                    <div class="col text-center actor-card mb-5">
+                        <div class="actor-card-wrapper">
+                            <img src="/public/images/robert-downey.jpg" alt="" class="img-fluid mx-auto actor-picture">
+                            <span class="actor-name">Robert Downey Jr.</span>
+                            <a href="#" class="actor-card-overlay"></a>
+                        </div>
+                    </div>
+                    <div class="col text-center actor-card mb-5">
+                        <div class="actor-card-wrapper">
+                            <img src="/public/images/robert-downey.jpg" alt="" class="img-fluid mx-auto actor-picture">
+                            <span class="actor-name">Robert Downey Jr.</span>
+                            <a href="#" class="actor-card-overlay"></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="reviews">
+    <section class="reviews">
         <div class="container reviews-wrapper py-1">
             <h2><i class="fa fa-star" aria-hidden="true"></i></h2>
-            <h2></h2>
+            <h2 class="section-title-black">REVIEWS</h2>
+            <div class="other-sites-marks d-flex flex-column flex-lg-row flex-xl-row justify-content-around">
+                <div class="mark-wrapper">
+                    <div class="mark-icon-wrapper my-4 mx-auto">
+                        <i class="fab fa-imdb"></i>
+                    </div>
+                    <h3><span id="imdb-mark">9.5</span> IMDB</h3>
+                </div>
+                <div class="mark-wrapper">
+                    <div class="mark-icon-wrapper my-4 mx-auto">
+                        <i class="fab fa-imdb"></i>
+                    </div>
+                    <h3><span id="rotten-mark">9.5</span> Rotten Tomatoes</h3>
+                </div>
+                <div class="mark-wrapper">
+                    <div class="mark-icon-wrapper my-4 mx-auto">
+                        <i class="fab fa-imdb"></i>
+                    </div>
+                    <h3><span id="metacritic-mark">9.5</span> Metacritic</h3>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
     <footer>
         <div class="container">

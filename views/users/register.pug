@@ -1,0 +1,24 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/vendors/bootstrap-4.4.1-dist/css/bootstrap.min.css')
+  link(rel='stylesheet' href='/vendors/fontawesome-free-5.13.0-web/css/all.min.css')
+  link(rel='stylesheet' href='/vendors/fontawesome-free-5.13.0-web/css/fontawesome.min.css')
+  link(rel='stylesheet' href='/stylesheets/login-register.css')
+  title ReviewPhim - Login
+// This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io!
+.container
+  .row
+    .col-sm-9.col-md-7.col-lg-5.mx-auto
+      .card.card-signin.my-5
+        .card-body
+          h5.card-title.text-center Register
+          form.form-signin(action='/users/register', method='POST')
+            .form-label-group
+              input#inputUsername.form-control(type='text' name='username' placeholder='Email address' required='' autofocus='')
+              label(for='inputUsername') Username
+            .form-label-group
+              input#inputPassword.form-control(type='password' name='password' placeholder='Password' required='')
+              label(for='inputPassword') Password
+            button.btn.btn-lg.btn-block.text-uppercase(type='submit') Register
