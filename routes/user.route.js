@@ -21,6 +21,8 @@ router.get('/register', function(req, res) {
     res.render('users/register');
 });
 
+
+
 router.post('/register', function(req, res) {
     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
         let createUserSql = `INSERT INTO users(username, password)

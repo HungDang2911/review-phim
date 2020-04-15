@@ -3,22 +3,9 @@ const app = express();
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
-const mysql = require('mysql');
 const userRoute = require('./routes/user.route');
 
 const port = 3000;
-
-// const con = mysql.createConnection({
-//     host: "localhost",
-//     user: "root",
-//     password: "",
-//     database: "reviewphim"
-// })
-
-// con.connect(function(err) {
-//     if (err) throw(err);
-//     console.log("Connected");
-// });
 
 app.set('view engine', 'pug');
 app.set('views', './views');
@@ -30,7 +17,7 @@ app.use('/users', userRoute);
 
 
 app.get('/', function(req, res) {
-    res.render('index');
+    res.render('index', {username: 123});
 });
 
 app.listen(port, function() {
