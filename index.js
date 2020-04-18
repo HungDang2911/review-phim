@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 const userRoute = require('./routes/user.route');
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.set('view engine', 'pug');
 app.set('views', './views');
