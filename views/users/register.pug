@@ -16,9 +16,12 @@ head
           h5.card-title.text-center Register
           form.form-signin(action='/users/register', method='POST')
             .form-label-group
-              input#inputUsername.form-control(type='text' name='username' placeholder='Email address' required='' autofocus='')
+              input#inputEmail.form-control(type='email' name='email' placeholder='Email' required='' autofocus='')
+              label(for='inputEmail') Email
+            .form-label-group
+              input#inputUsername.form-control(type='text' name='username' placeholder='Username' required='')
               label(for='inputUsername') Username
             .form-label-group
               input#inputPassword.form-control(type='password' name='password' placeholder='Password' required='')
               label(for='inputPassword') Password
-            button.btn.btn-lg.btn-block.text-uppercase(type='submit') Register
+            button.btn.btn-lg.btn-block.text-uppercase(type='submit') Sign Up
