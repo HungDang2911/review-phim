@@ -1,16 +1,29 @@
 const {check, validationResult} = require('express-validator');
 
-module.exports.postCreate = function (req, res, next) {
-    console.log(req.body.username);
-    console.log(req.body.password);
-    check(req.body.username).notEmpty().withMessage("User name can not be empty");
-    check(req.body.password).notEmpty().withMessage("Password can not be empty");
+module.exports.validateRegister = [ 
+        check('username', 'Username can not be empty').notEmpty(),
+        check('username', 'Username must be Alphanumeric').isAlphanumeric(),
+        check('username', 'Username must contain at least 6 characters').isLength({ min: 6 }),
+        check('email', 'Email can not be empty').notEmpty(),
+        check('email', 'Invalid email').isEmail(),
+        check('password', 'password must contain at least 6 characters').isLength({ min: 6 })
+      ]; 
 
-    let errors = validationResult(req)['errors'];
+module.exports.validateLogin = [
+    check('username', 'username can not be empty').notEmpty(),
+    check('password', 'password can not be empty').notEmpty()
+]
 
+module.exports.handleErrors = (req, res, next) => {
+    let errors = validationResult(req).array();
     if (errors) {
-        console.log(errors);
+        let errorMessages = errors.map(field => field['msg']);
+        res.render(`users${req.url}`, {
+            errors: errorMessages
+        });
+        return;
     }
 
     next();
 }
+
