@@ -3,10 +3,10 @@ const {check, validationResult} = require('express-validator');
 module.exports.validateRegister = [ 
         check('username', 'Username can not be empty').notEmpty(),
         check('username', 'Username must be Alphanumeric').isAlphanumeric(),
-        check('username', 'Username must contain at least 6 characters').isLength({ min: 6 }),
+        check('username', 'Username must be between 6-20 characters long').isLength({ min: 6 , max: 20}),
         check('email', 'Email can not be empty').notEmpty(),
         check('email', 'Invalid email').isEmail(),
-        check('password', 'password must contain at least 6 characters').isLength({ min: 6 })
+        check('password', 'password must be between 6-100 characters long').isLength({ min: 6 , max: 100})
       ]; 
 
 module.exports.validateLogin = [
@@ -16,14 +16,12 @@ module.exports.validateLogin = [
 
 module.exports.handleErrors = (req, res, next) => {
     let errors = validationResult(req).array();
-    if (errors) {
+    if (errors === undefined || errors.length) {
         let errorMessages = errors.map(field => field['msg']);
         res.render(`users${req.url}`, {
             errors: errorMessages
         });
         return;
     }
-
     next();
 }
-
