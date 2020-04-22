@@ -36,6 +36,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(function(req, res, next) {
+    res.locals.isAuthenticated = req.isAuthenticated();
+    next();
+})
 
 const auth = require('./middlewares/auth.middleware');
 

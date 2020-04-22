@@ -10,9 +10,7 @@ const saltRounds = 10;
 
 const router = express.Router();
 
-router.get('/login', function(req, res) {
-    res.render('users/login');
-});
+router.get('/login', controller.getLogin);
 
 router.post('/login', validate.validateLogin, validate.handleErrors, passport.authenticate(
     'local', {

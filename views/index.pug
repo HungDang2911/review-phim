@@ -8,8 +8,8 @@ head
     link(rel='stylesheet' href='/stylesheets/index.css')
     title Review Phim
 .container
-    a(href='users/login') Login
-    a(href='users/logout') Log out
+    include navbar.pug
+    
     ul#myTab.nav.nav-tabs(role='tablist')
         li.nav-item
             a#home-tab.nav-link.active(data-toggle='tab' href='#now-playing' role='tab' aria-controls='home' aria-selected='true') Now Playing

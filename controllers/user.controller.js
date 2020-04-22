@@ -3,7 +3,9 @@ const connection = require("../models/dbconnection");
 const passport = require('passport');
 const saltRounds = 10;
 
-module.exports.getLogin = {};
+module.exports.getLogin = (req, res) => {
+    res.render('users/login');
+};
 
 module.exports.postLogin = {};
 
