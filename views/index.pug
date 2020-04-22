@@ -1,51 +1,51 @@
 doctype html
 head
-    meta(charset='UTF-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    link(rel='stylesheet' href='/vendors/bootstrap-4.4.1-dist/css/bootstrap.min.css')
-    link(rel='stylesheet' href='/vendors/fontawesome-free-5.13.0-web/css/all.min.css')
-    link(rel='stylesheet' href='/vendors/fontawesome-free-5.13.0-web/css/fontawesome.min.css')
-    link(rel='stylesheet' href='/stylesheets/index.css')
-    title Review Phim
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet', href='vendors/bootstrap-4.4.1-dist/css/bootstrap.min.css')
+  link(rel='stylesheet', href='vendors/fontawesome-free-5.13.0-web/css/all.min.css')
+  link(rel='stylesheet', href='vendors/fontawesome-free-5.13.0-web/css/fontawesome.min.css')
+  link(rel='stylesheet', href='stylesheets/index.css')
+  title Review Phim
+include navbar.pug
 .container
-    include navbar.pug
-    
-    ul#myTab.nav.nav-tabs(role='tablist')
-        li.nav-item
-            a#home-tab.nav-link.active(data-toggle='tab' href='#now-playing' role='tab' aria-controls='home' aria-selected='true') Now Playing
-        li.nav-item
-            a#profile-tab.nav-link(data-toggle='tab' href='#profile' role='tab' aria-controls='profile' aria-selected='false') Profile
-        li.nav-item
-            a#contact-tab.nav-link(data-toggle='tab' href='#contact' role='tab' aria-controls='contact' aria-selected='false') Contact
-    #myTabContent.tab-content
-        #now-playing.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='home-tab')
-            .d-flex.flex-row.flex-movies
-                .movie-wrapper.mx-2
-                    .poster-wrapper
-                        img.poster.img-fluid(src='images/Avengers.jpg' alt='')
-                    h3.movie-name Avengers
-                    p.movie-date August 14, 2017
-                .movie-wrapper.mx-2
-                    .poster-wrapper
-                        img.poster.img-fluid(src='images/Avengers.jpg' alt='')
-                    h3.movie-name Avengers
-                    p.movie-date August 14, 2017
-                .movie-wrapper.mx-2
-                    .poster-wrapper
-                        img.poster.img-fluid(src='images/Avengers.jpg' alt='')
-                    h3.movie-name Avengers
-                    p.movie-date August 14, 2017
-                .movie-wrapper.mx-2
-                    .poster-wrapper
-                        img.poster.img-fluid(src='images/Avengers.jpg' alt='')
-                    h3.movie-name Avengers
-                    p.movie-date August 14, 2017
-                .movie-wrapper.mx-2
-                    .poster-wrapper
-                        img.poster.img-fluid(src='images/Avengers.jpg' alt='')
-                    h3.movie-name Avengers
-                    p.movie-date August 14, 2017
-        #profile.tab-pane.fade(role='tabpanel' aria-labelledby='profile-tab')
-        #contact.tab-pane.fade(role='tabpanel' aria-labelledby='contact-tab')
-script(src='js/jquery.min.js')
-script(src='vendors/bootstrap-4.4.1-dist/js/bootstrap.js')
+  ul#myTab.nav.nav-tabs(role='tablist')
+    li.nav-item
+      a#home-tab.nav-link.active(data-toggle='tab', href='#now-playing', role='tab', aria-controls='home', aria-selected='true') Now Playing
+    li.nav-item
+      a#profile-tab.nav-link(data-toggle='tab', href='#profile', role='tab', aria-controls='profile', aria-selected='false') Profile
+    li.nav-item
+      a#contact-tab.nav-link(data-toggle='tab', href='#contact', role='tab', aria-controls='contact', aria-selected='false') Contact
+  #myTabContent.tab-content
+    #now-playing.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='home-tab')
+      .d-flex.flex-row.flex-movies
+        .movie-wrapper.mx-2
+          .poster-wrapper
+            img.poster.img-fluid(src='images/Avengers.jpg', alt='')
+          h3.movie-name Avengers
+          p.movie-date August 14, 2017
+        .movie-wrapper.mx-2
+          .poster-wrapper
+            img.poster.img-fluid(src='images/Avengers.jpg', alt='')
+          h3.movie-name Avengers
+          p.movie-date August 14, 2017
+        .movie-wrapper.mx-2
+          .poster-wrapper
+            img.poster.img-fluid(src='images/Avengers.jpg', alt='')
+          h3.movie-name Avengers
+          p.movie-date August 14, 2017
+        .movie-wrapper.mx-2
+          .poster-wrapper
+            img.poster.img-fluid(src='images/Avengers.jpg', alt='')
+          h3.movie-name Avengers
+          p.movie-date August 14, 2017
+        .movie-wrapper.mx-2
+          .poster-wrapper
+            img.poster.img-fluid(src='images/Avengers.jpg', alt='')
+          h3.movie-name Avengers
+          p.movie-date August 14, 2017
+    #profile.tab-pane.fade(role='tabpanel', aria-labelledby='profile-tab')
+    #contact.tab-pane.fade(role='tabpanel', aria-labelledby='contact-tab')
+include footer.pug
+script(src='/public/js/jquery.min.js')
+script(src='/public/stylesheets/vendors/bootstrap-4.4.1-dist/js/bootstrap.js')
