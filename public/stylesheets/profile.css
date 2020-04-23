@@ -37,6 +37,44 @@ body {
     color: red !important;
 }
 
+h2, .field {
+    color: black;
+}
+
+h2 {
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+h2 i {
+    color: red;
+}
+
+.profile-wrapper {
+    margin: 50px auto;
+}
+
+#info-wrapper {
+    border: 1px solid #666;
+    margin: 50px 0;
+}
+
+.info-row {
+    width: 100%;
+    display: flex;
+    font-size: 1.7rem;
+    margin: 20px 10px;
+}
+
+.field {
+    width: 400px;    
+    padding-left: 50px;
+}
+
+.content {
+    flex: 1;
+}
+
 footer {
     background-color: black;
 }

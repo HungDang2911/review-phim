@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const connection = require("../models/dbconnection");
 const passport = require('passport');
 const saltRounds = 10;
+const model = require('../models/user.model');
 
 module.exports.getLogin = (req, res) => {
     res.render('users/login');
@@ -39,6 +40,18 @@ module.exports.postRegister = (req, res) => {
         });
     }); 
 };
+
+module.exports.getProfile = (req, res) => {
+    const userId = req.user.userId;
+    
+    model.getById(userId, function(err, results) {
+        if (err) throw err;
+        
+        const user = results[0];
+
+        res.render('users/profile', user);
+    });
+}
 
 
 

@@ -28,5 +28,7 @@ router.get('/register', function(req, res) {
 
 router.post('/register', validate.validateRegister, validate.handleErrors, controller.postRegister);
 
+router.get('/profile', controller.getProfile);
+
 
 module.exports = router;
