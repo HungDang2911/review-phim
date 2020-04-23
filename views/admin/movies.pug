@@ -1,0 +1,37 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet', href='/vendors/bootstrap-4.4.1-dist/css/bootstrap.min.css')
+  link(rel='stylesheet', href='/vendors/fontawesome-free-5.13.0-web/css/all.min.css')
+  link(rel='stylesheet', href='/vendors/fontawesome-free-5.13.0-web/css/fontawesome.min.css')
+  link(rel='stylesheet', href='/stylesheets/admin-movies.css')
+  title Movies Management
+h1 Movies Management
+.container
+  form(action='/admin/movies', method='POST')
+    .form-group.row
+      label.col-sm-2.col-form-label(for='inputMovieName') Name
+      .col-sm-10
+        input#inputMovieName.form-control(type='text', name='name', placeholder='Movie Name')
+    .form-group.row
+      label.col-sm-2.col-form-label(for='inputReleaseDate') Release Date
+      .col-sm-10
+        input#inputReleaseDate(type='date', name='releaseDate')
+    .form-group.row
+      label.col-sm-2.col-form-label(for='inputTime') Time
+      .col-sm-10
+        input#inputTime.form-control(type='number', name='time', placeholder='Time')
+    .form-group.row
+      label.col-sm-2.col-form-label(for='inputGenre') Genre
+      .col-sm-10
+        input#inputGenre.form-control(type='text', name='genre', placeholder='Genre')
+    .form-group.row
+      label.col-sm-2.col-form-label(for='inputTrailerLink') Trailer Link
+      .col-sm-10
+        input#inputTrailerLink.form-control(type='text', name='trailerLink', placeholder='Trailer Link')
+    .form-group.row
+      label.col-sm-2.col-form-label(for='inputDescription') Description
+      .col-sm-10
+        textarea#inputDescription.form-control(name='description', rows='3', placeholder='Description')
+    button.btn.btn-danger.mx-auto(type='submit') Add Movies

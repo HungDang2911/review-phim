@@ -108,16 +108,16 @@ iframe {
 
 /* ACTORS SECTION */
 
-.actor-card {
+.person-card {
     position: relative;
 }
 
-.actor-card-wrapper {
+.person-card-wrapper {
     display: inline-block;
     position: relative;
 }
 
-.actor-name {
+.person-name {
     display: block;
     max-width: 90%;
     word-wrap: break-word;
@@ -130,7 +130,7 @@ iframe {
     transition: .5s;
 }
 
-.actor-card-overlay {
+.person-card-overlay {
     display: block;
     position: absolute;
     top: 0;
@@ -142,11 +142,11 @@ iframe {
     background-color: black;
 }
 
-.actor-card-wrapper:hover .actor-card-overlay {
+.person-card-wrapper:hover .person-card-overlay {
     opacity: .5;
 }
 
-.actor-card-wrapper:hover .actor-name {
+.person-card-wrapper:hover .person-name {
     transform: translateX(10%);
 }
 
@@ -196,6 +196,7 @@ iframe {
 
 .user-name {
     font-size: 1.5rem;
+    color: black;
 }
 
 #post-comment *{

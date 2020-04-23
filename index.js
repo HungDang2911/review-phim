@@ -6,6 +6,7 @@ const MySQLStore = require('express-mysql-session')(session);
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
+const adminRoute = require('./routes/admin.route');
 const userRoute = require('./routes/user.route');
 // const actorRoute = require('./routes/actor.route');
 // const movieRoute = require('./routes/movie.route');
@@ -44,6 +45,7 @@ app.use(function(req, res, next) {
 const auth = require('./middlewares/auth.middleware');
 
 //Routes
+app.use('/admin', adminRoute);
 app.use('/users', userRoute);
 // app.use('/directors', directorRoute);
 // app.use('/actors', actorRoute);
