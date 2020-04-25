@@ -37,6 +37,33 @@ body {
     color: red !important;
 }
 
+.top-rated,
+.now-playing {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+h2 {
+    font-size: 3.5rem;
+    color: black;
+    text-align: center;
+}
+
+h2 i {
+    color: red;
+}
+
+.flex-movies {
+    margin: 30px;
+}
+
+.movie-wrapper {
+    flex-basis: 19%;
+}
+
+.poster-wrapper {
+}
+
 footer {
     background-color: black;
 }

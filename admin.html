@@ -6,14 +6,32 @@
     <link rel="stylesheet" href="/public/vendors/bootstrap-4.4.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/vendors/fontawesome-free-5.13.0-web/css/all.min.css">
     <link rel="stylesheet" href="/public/vendors/fontawesome-free-5.13.0-web/css/fontawesome.min.css">
-    <link rel="stylesheet" href="/public/stylesheets/admin.css">
+    <link rel="stylesheet" href="/public/stylesheets/admin/common.css">
     <title>Admin</title>
 </head>
 <body>
-    <h1>Admin Page</h1>
-    <h2><a href="admin/users">Users</a></h2>
-    <h2><a href="admin/movies">Movies</a></h2>
-    <h2><a href="admin/actors">Actors</a></h2>
-    <h2><a href="admin/directors">Directors</a></h2>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" href="admin/movies"><i class="fas fa-film"></i> Manage Movies</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="admin/actors"><i class="fas fa-universal-access"></i> Manage Actors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="admin/directors"><i class="fas fa-compass"></i> Manage Directors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="admin/genres"><i class="fas fa-filter"></i> Manage Genres</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="admin/users"><i class="fas fa-users"></i> Manage Users</a>
+      </li>
+      <li class="nav-item mt-auto">
+        <a class="nav-link" href="users/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </li>
+    </ul>
+    <div class="content">
+      
+    </div>
 </body>
 </html>

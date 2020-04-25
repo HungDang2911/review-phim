@@ -12,11 +12,26 @@ module.exports = {
     },
 
     getById: function(id, callback) {
-        connection.query('SELECT * FROM users WHERE userId = ?', [id], callback);
+        connection.query('SELECT * FROM movies WHERE movieId = ?', [id], function(err, results) {
+            if (err) throw err;
+            const movie = results[0];
+
+            connection.query('SELECT actors.actorId,`actorName`,`imageLink` FROM `actors` LEFT JOIN `movies_actors` ON actors.actorId = movies_actors.actorId WHERE movies_actors.movieId = (?)',
+            [id], function(err, results) {
+                if (err) throw err;
+                const actors = results;
+
+                callback();
+            });
+        });
+    },
+
+    getGenre: function(callback) {
+        connection.query('SELECT * FROM moviegenres', callback);
     },
 
     getByName: function(name, callback) {
-        connection.query('SELECT * FROM `users` WHERE `username` = (?)')
+        // connection.query('SELECT * FROM `users` WHERE `username` = (?)')
     },
 
     delete: function(id, callback) {

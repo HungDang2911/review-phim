@@ -1,0 +1,109 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet', href='/vendors/bootstrap-4.4.1-dist/css/bootstrap.min.css')
+  link(rel='stylesheet', href='/vendors/fontawesome-free-5.13.0-web/css/all.min.css')
+  link(rel='stylesheet', href='/vendors/fontawesome-free-5.13.0-web/css/fontawesome.min.css')
+  link(rel='stylesheet', href='/stylesheets/movie.css')
+  title ReviewPhim
+include navbar
+section.about-the-movie
+  .container.about-the-movie-wrapper
+    h2
+      i.fa.fa-question-circle(aria-hidden='true')
+    h2.section-title-black ABOUT THE MOVIE
+    .d-flex.flex-xl-row.flex-column.movie
+      .poster-container
+        img.poster.img-fluid(src=movie.posterLink, alt='')
+      .movie-info.ml-4.p-2
+        h4.genres #{movie.genre}
+        h3.movie-name #{movie.movieName}
+        .movie-general-info.my-5
+          i.fas.fa-play-circle
+          span.movie-info-index.px-2 Release Date:
+          span.movie-release-date #{movie.releaseDate}
+          br
+          i.fas.fa-clock
+          span.movie-info-index.px-2 Time:
+          span.movie-time #{movie.movieTime} minutes
+          br
+        p.preview #{movie.movieDescription}
+section.trailer
+  .container
+    h2
+      i.fas.fa-video
+    h2.section-title-white TRAILERS
+    iframe(src=movie.trailerLink, frameborder='0', allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture', allowfullscreen='')
+section.directors
+  .container.directors-wrapper.py-1
+    h2
+      i.fas.fa-user-circle
+    h2.section-title-black DIRECTORS
+    .container
+      .row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.row-cols-xl-4.actors-grid
+        each director in directors
+          .col.text-center.person-card.mb-5
+            .person-card-wrapper
+              img.img-fluid.mx-auto.person-picture(src=director.imageLink, alt='')
+              span.person-name= director.directorName
+              a.person-card-overlay(href='#')
+section.actors
+  .container.actors-wrapper.py-1
+    h2
+      i.fas.fa-users
+    h2.section-title-black ACTORS
+    .container
+      .row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.row-cols-xl-4.actors-grid
+        each actor in actors
+          .col.text-center.person-card.mb-5
+            .person-card-wrapper
+              img.img-fluid.mx-auto.person-picture(src=actor.imageLink, alt='')
+              span.person-name= actor.actorName
+              a.person-card-overlay(href='#')
+section.reviews
+  .container.reviews-wrapper.py-1
+    h2
+      i.fa.fa-star(aria-hidden='true')
+    h2.section-title-black REVIEWS
+    .other-sites-marks.d-flex.flex-column.flex-lg-row.flex-xl-row.justify-content-around
+      .mark-wrapper
+        .mark-icon-wrapper.my-4.mx-auto
+          i.fab.fa-imdb
+        h3
+          span#imdb-mark #{movie.imdb}
+          |  IMDB
+      .mark-wrapper
+        .mark-icon-wrapper.my-4.mx-auto
+          i.fab.fa-imdb
+        h3
+          span#rotten-mark #{movie.rottenTomatoes}%
+          |  Rotten Tomatoes
+      .mark-wrapper
+        .mark-icon-wrapper.my-4.mx-auto
+          i.fab.fa-imdb
+        h3
+          span#metacritic-mark #{movie.metacritic}
+          |  Metacritic
+    .comments-wrapper
+      .media
+        img.mr-3.user-avatar(src='/images/utils/default-avatar.png', alt='Generic placeholder image')
+        .media-body
+          h5.mt-0.user-name Username
+          |                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus asdfawedasdfzvdfgsgwaeqwesdfasd asdfasdfa sdfa sdasdfwef asd asdfasdfasdf asdfasd.
+      .media
+        img.mr-3.user-avatar(src='/images/utils/default-avatar.png', alt='Generic placeholder image')
+        .media-body
+          h5.mt-0.user-name Username
+          |                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus asdfawedasdfzvdfgsgwaeqwesdfasd asdfasdfa sdfa sdasdfwef asd asdfasdfasdf asdfasd.
+      .media
+        img.mr-3.user-avatar(src='/images/utils/default-avatar.png', alt='Generic placeholder image')
+        .media-body
+          h5.mt-0.user-name Username
+          |                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus asdfawedasdfzvdfgsgwaeqwesdfasd asdfasdfa sdfa sdasdfwef asd asdfasdfasdf asdfasd.
+      form#post-comment.form-group.clearfix(method='POST')
+        label(for='comment-text-area') Post Comment
+        textarea#comment-text-area.form-control(name='commentContent', rows='3')
+        button#post-comment-btn.btn.btn-danger.my-3.float-right(type='submit') Submit
+include footer
+script(src='/movie.js')

@@ -6,8 +6,6 @@ const auth = require('../middlewares/auth.middleware');
 const passport = require('passport');
 const controller = require('../controllers/user.controller')
 
-const saltRounds = 10;
-
 const router = express.Router();
 
 router.get('/login', controller.getLogin);

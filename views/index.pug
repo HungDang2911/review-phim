@@ -8,44 +8,31 @@ head
   link(rel='stylesheet', href='stylesheets/index.css')
   title Review Phim
 include navbar.pug
-.container
-  ul#myTab.nav.nav-tabs(role='tablist')
-    li.nav-item
-      a#home-tab.nav-link.active(data-toggle='tab', href='#now-playing', role='tab', aria-controls='home', aria-selected='true') Now Playing
-    li.nav-item
-      a#profile-tab.nav-link(data-toggle='tab', href='#profile', role='tab', aria-controls='profile', aria-selected='false') Profile
-    li.nav-item
-      a#contact-tab.nav-link(data-toggle='tab', href='#contact', role='tab', aria-controls='contact', aria-selected='false') Contact
-  #myTabContent.tab-content
-    #now-playing.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='home-tab')
-      .d-flex.flex-row.flex-movies
-        .movie-wrapper.mx-2
-          .poster-wrapper
-            img.poster.img-fluid(src='images/Avengers.jpg', alt='')
-          h3.movie-name Avengers
-          p.movie-date August 14, 2017
-        .movie-wrapper.mx-2
-          .poster-wrapper
-            img.poster.img-fluid(src='images/Avengers.jpg', alt='')
-          h3.movie-name Avengers
-          p.movie-date August 14, 2017
-        .movie-wrapper.mx-2
-          .poster-wrapper
-            img.poster.img-fluid(src='images/Avengers.jpg', alt='')
-          h3.movie-name Avengers
-          p.movie-date August 14, 2017
-        .movie-wrapper.mx-2
-          .poster-wrapper
-            img.poster.img-fluid(src='images/Avengers.jpg', alt='')
-          h3.movie-name Avengers
-          p.movie-date August 14, 2017
-        .movie-wrapper.mx-2
-          .poster-wrapper
-            img.poster.img-fluid(src='images/Avengers.jpg', alt='')
-          h3.movie-name Avengers
-          p.movie-date August 14, 2017
-    #profile.tab-pane.fade(role='tabpanel', aria-labelledby='profile-tab')
-    #contact.tab-pane.fade(role='tabpanel', aria-labelledby='contact-tab')
+.container.top-rated
+  h2
+    i.far.fa-star
+  h2 Top rated movies
+  .d-flex.flex-row.flex-movies
+    each movie in topRatedMovies
+      .movie-wrapper.mx-2
+        .poster-wrapper
+          a(href='/movies/' + movie.movieId)
+            img.poster.img-fluid(src=movie.posterLink, alt='')
+        a(href='/movies/' + movie.movieId)
+          h3.movie-name #{movie.movieName}
+.container.now-playing
+  h2
+    i.fas.fa-play
+  h2 Now Playing
+  .d-flex.flex-row.flex-movies
+    each movie in nowPlayingMovies
+      .movie-wrapper.mx-2
+        .poster-wrapper
+          a(href='/movies/' + movie.movieId)
+            img.poster.img-fluid(src=movie.posterLink, alt='')
+        a(href='/movies/' + movie.movieId)
+          h3.movie-name #{movie.movieName}
+    
+
+
 include footer.pug
-script(src='/public/js/jquery.min.js')
-script(src='/public/stylesheets/vendors/bootstrap-4.4.1-dist/js/bootstrap.js')

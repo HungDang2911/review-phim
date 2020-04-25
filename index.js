@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt');
 const adminRoute = require('./routes/admin.route');
 const userRoute = require('./routes/user.route');
 // const actorRoute = require('./routes/actor.route');
-// const movieRoute = require('./routes/movie.route');
+const movieRoute = require('./routes/movie.route');
 // const directorRoute = require('./routes/director.route');
 const port = process.env.PORT || 3000;
 const options = {
@@ -49,12 +49,19 @@ app.use('/admin', adminRoute);
 app.use('/users', userRoute);
 // app.use('/directors', directorRoute);
 // app.use('/actors', actorRoute);
-// app.use('/movies', movieRoute);
+app.use('/movies', movieRoute);
 
 app.get('/', function(req, res) {
-    console.log(req.user);
-    console.log(req.isAuthenticated());
-    res.render('index');
+    const connection = require('./models/dbconnection');
+    connection.query('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `imdb` DESC LIMIT 5', function(err, results) {
+        if (err) throw err;
+        const topRatedMovies = results;
+        connection.query('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `releaseDate` DESC LIMIT 5', function(err, results) {
+            if (err) throw err;
+            const nowPlayingMovies = results;
+            res.render('index', {topRatedMovies, nowPlayingMovies});
+        })
+    }) 
 });
 
 passport.use(new LocalStrategy(

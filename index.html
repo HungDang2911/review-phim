@@ -10,101 +10,87 @@
     <title>Review Phim</title>
 </head>
 <body>
-    <div class="container clearfix">
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <a class="navbar-brand" href="/">ReviewPhim</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-              <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" id="search-bar" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-danger my-2 my-sm-0" id="search-btn" type="submit">Search</button>
-              </form>
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/users/profile">Profile</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="users/logout">Logout</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="users/register">Register</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="users/login">Login</a>
-                </li>
-              </ul>
+    <div class="container top-rated">
+        <h2><i class="far fa-star"></i></h2>
+      <h2>Top rated movies</h2>
+      <div class="d-flex flex-row flex-movies">
+        <div class="movie-wrapper mx-2">
+            <div class="poster-wrapper">
+                <a href="#"><img src="/public/images/Avengers.jpg" alt="" class="poster img-fluid"></a>
             </div>
-          </nav>
+            <h3 class="movie-name">Avengers</h3>
+            <p class="movie-date">August 14, 2017</p>
+        </div>
+        <div class="movie-wrapper mx-2">
+            <div class="poster-wrapper">
+                <a href="#"><img src="/public/images/Avengers.jpg" alt="" class="poster img-fluid"></a>
+            </div>
+            <h3 class="movie-name">Avengers</h3>
+            <p class="movie-date">August 14, 2017</p>
+        </div>
+        <div class="movie-wrapper mx-2">
+            <div class="poster-wrapper">
+                <a href="#"><img src="/public/images/Avengers.jpg" alt="" class="poster img-fluid"></a>
+            </div>
+            <h3 class="movie-name">Avengers</h3>
+            <p class="movie-date">August 14, 2017</p>
+        </div>
+        <div class="movie-wrapper mx-2">
+            <div class="poster-wrapper">
+                <a href="#"><img src="/public/images/Avengers.jpg" alt="" class="poster img-fluid"></a>
+            </div>
+            <h3 class="movie-name">Avengers</h3>
+            <p class="movie-date">August 14, 2017</p>
+        </div>
+        <div class="movie-wrapper mx-2">
+            <div class="poster-wrapper">
+                <a href="#"><img src="/public/images/Avengers.jpg" alt="" class="poster img-fluid"></a>
+            </div>
+            <h3 class="movie-name">Avengers</h3>
+            <p class="movie-date">August 14, 2017</p>
+        </div>
+      </div>
     </div>
-
-    <div class="container">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#now-playing" role="tab" aria-controls="home" aria-selected="true">Now Playing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-            </li>
-          </ul>
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="now-playing" role="tabpanel" aria-labelledby="home-tab">
-                <div class="d-flex flex-row flex-movies">
-                    <div class="movie-wrapper mx-2">
-                        <div class="poster-wrapper">
-                            <img src="/public/images/Avengers.jpg" alt="" class="poster img-fluid">
-                        </div>
-                        <h3 class="movie-name">Avengers</h3>
-                        <p class="movie-date">August 14, 2017</p>
-                    </div>
-                    <div class="movie-wrapper mx-2">
-                        <div class="poster-wrapper">
-                            <img src="/public/images/Avengers.jpg" alt="" class="poster img-fluid">
-                        </div>
-                        <h3 class="movie-name">Avengers</h3>
-                        <p class="movie-date">August 14, 2017</p>
-                    </div>
-                    <div class="movie-wrapper mx-2">
-                        <div class="poster-wrapper">
-                            <img src="/public/images/Avengers.jpg" alt="" class="poster img-fluid">
-                        </div>
-                        <h3 class="movie-name">Avengers</h3>
-                        <p class="movie-date">August 14, 2017</p>
-                    </div>
-                    <div class="movie-wrapper mx-2">
-                        <div class="poster-wrapper">
-                            <img src="/public/images/Avengers.jpg" alt="" class="poster img-fluid">
-                        </div>
-                        <h3 class="movie-name">Avengers</h3>
-                        <p class="movie-date">August 14, 2017</p>
-                    </div>
-                    <div class="movie-wrapper mx-2">
-                        <div class="poster-wrapper">
-                            <img src="/public/images/Avengers.jpg" alt="" class="poster img-fluid">
-                        </div>
-                        <h3 class="movie-name">Avengers</h3>
-                        <p class="movie-date">August 14, 2017</p>
-                    </div>
-                </div>
+    <div class="container now-playing">
+      <h2><i class="fas fa-play"></i></h2>
+      <h2>Now Playing</h2>
+      <div class="d-flex flex-row flex-movies">
+        <div class="movie-wrapper mx-2">
+            <div class="poster-wrapper">
+                <a href="#"><img src="/public/images/Avengers.jpg" alt="" class="poster img-fluid"></a>
             </div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
+            <h3 class="movie-name">Avengers</h3>
+            <p class="movie-date">August 14, 2017</p>
+        </div>
+        <div class="movie-wrapper mx-2">
+            <div class="poster-wrapper">
+                <a href="#"><img src="/public/images/Avengers.jpg" alt="" class="poster img-fluid"></a>
             </div>
-            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-
+            <h3 class="movie-name">Avengers</h3>
+            <p class="movie-date">August 14, 2017</p>
+        </div>
+        <div class="movie-wrapper mx-2">
+            <div class="poster-wrapper">
+                <a href="#"><img src="/public/images/Avengers.jpg" alt="" class="poster img-fluid"></a>
             </div>
-          </div>
-    </div>
-    
-    <script src="/public/js/jquery.min.js"></script>
-    <script src="/public/stylesheets/vendors/bootstrap-4.4.1-dist/js/bootstrap.js"></script>
+            <h3 class="movie-name">Avengers</h3>
+            <p class="movie-date">August 14, 2017</p>
+        </div>
+        <div class="movie-wrapper mx-2">
+            <div class="poster-wrapper">
+                <a href="#"><img src="/public/images/Avengers.jpg" alt="" class="poster img-fluid"></a>
+            </div>
+            <h3 class="movie-name">Avengers</h3>
+            <p class="movie-date">August 14, 2017</p>
+        </div>
+        <div class="movie-wrapper mx-2">
+            <div class="poster-wrapper">
+                <a href="#"><img src="/public/images/Avengers.jpg" alt="" class="poster img-fluid"></a>
+            </div>
+            <h3 class="movie-name">Avengers</h3>
+            <p class="movie-date">August 14, 2017</p>
+        </div>
+      </div>
+    </div>    
 </body>
 </html>
