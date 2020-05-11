@@ -107,14 +107,18 @@ iframe {
 
 
 /* ACTORS SECTION */
-
-.person-card {
-    position: relative;
-}
-
 .person-card-wrapper {
     display: inline-block;
     position: relative;
+}
+
+.person-card {
+    position: relative;
+    height: 100%;
+}
+
+.person-picture {
+    /* height: 100%; */
 }
 
 .person-name {

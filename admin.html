@@ -10,28 +10,36 @@
     <title>Admin</title>
 </head>
 <body>
-    <ul class="nav flex-column">
-      <li class="nav-item">
-        <a class="nav-link active" href="admin/movies"><i class="fas fa-film"></i> Manage Movies</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="admin/actors"><i class="fas fa-universal-access"></i> Manage Actors</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="admin/directors"><i class="fas fa-compass"></i> Manage Directors</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="admin/genres"><i class="fas fa-filter"></i> Manage Genres</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="admin/users"><i class="fas fa-users"></i> Manage Users</a>
-      </li>
-      <li class="nav-item mt-auto">
-        <a class="nav-link" href="users/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
-      </li>
-    </ul>
-    <div class="content">
-      
-    </div>
+    <main class="main-wrapper">
+      <!-- Sidebar Menu -->
+      <div id="side-bar">
+        <ul class="nav flex-column">
+          <li class="nav-item" title="Movies">
+            <a class="nav-link active" href="admin/movies"><i class="fas fa-film"></i></a>
+          </li>
+          <li class="nav-item" title="Actors">
+            <a class="nav-link" href="admin/actors"><i class="fas fa-universal-access"></i></a>
+          </li>
+          <li class="nav-item" title="Directors">
+            <a class="nav-link" href="admin/directors"><i class="fas fa-compass"></i></a>
+          </li>
+          <li class="nav-item" title="Genres">
+            <a class="nav-link" href="admin/genres"><i class="fas fa-filter"></i></a>
+          </li>
+          <li class="nav-item" title="Users">
+            <a class="nav-link" href="admin/users"><i class="fas fa-users"></i></a>
+          </li>
+          <li class="nav-item mt-auto" title="Logout">
+            <a class="nav-link" href="users/logout"><i class="fas fa-sign-out-alt"></i></a>
+          </li>
+        </ul>
+      </div>
+    
+      <!-- Page content -->
+      <div class="content">
+        <img src="../Cnpm/img/bg.jpg" width="1200px" height="1200px">
+      </div>
+    </main>
+    
 </body>
 </html>

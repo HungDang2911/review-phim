@@ -8,7 +8,7 @@ module.exports = {
     },
 
     getAll: function(callback) {
-        connection.query('SELECT * FROM `users`', callback);
+        connection.query('SELECT * FROM `movies`', callback);
     },
 
     getById: function(id, callback) {
@@ -32,6 +32,10 @@ module.exports = {
 
     getByName: function(name, callback) {
         // connection.query('SELECT * FROM `users` WHERE `username` = (?)')
+    },
+
+    update: function(id, callback) {
+        connection.query('');
     },
 
     delete: function(id, callback) {

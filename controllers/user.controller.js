@@ -24,20 +24,14 @@ module.exports.postRegister = (req, res) => {
     const password = req.body.password;
 
     bcrypt.hash(password, saltRounds, (err, hash) => {
-        let createUserSql = 'INSERT INTO users(username, password, email) VALUES (?, ?, ?)';
-        connection.query(createUserSql, [username, hash, email], function(error, results, fields) {
-            if (error) throw(error);
-
-            connection.query('SELECT LAST_INSERT_ID() AS userId', function(error, results, fields) {
-                if (error) throw error;
-                
-                const userId = results[0];
-
+        if (err) throw err;
+        model.create({username, hash, email}, () => {
+            model.getLastInsert((userId) => {
                 req.login(userId, function(err) {
                     res.redirect('/');
                 });
             });
-        });
+        })
     }); 
 };
 

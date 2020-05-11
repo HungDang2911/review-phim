@@ -10,4 +10,6 @@ const router = express.Router();
 
 router.get('/:id', controller.getMovieById);
 
+router.post('/:id', controller.postCommentAboutMovie);
+
 module.exports = router;
