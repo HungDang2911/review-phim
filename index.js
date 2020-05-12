@@ -5,6 +5,7 @@ const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const connection = require('./models/dbconnection');
 const bcrypt = require('bcrypt');
 const adminRoute = require('./routes/admin.route');
 const userRoute = require('./routes/user.route');
@@ -51,22 +52,25 @@ app.use('/users', userRoute);
 // app.use('/actors', actorRoute);
 app.use('/movies', movieRoute);
 
-app.get('/', function(req, res) {
-    const connection = require('./models/dbconnection');
-    connection.query('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `imdb` DESC LIMIT 5', function(err, results) {
-        if (err) throw err;
-        const topRatedMovies = results;
-        connection.query('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `releaseDate` DESC LIMIT 5', function(err, results) {
-            if (err) throw err;
-            const nowPlayingMovies = results;
-            res.render('index', {topRatedMovies, nowPlayingMovies});
-        })
-    }) 
+app.get('/', async function(req, res) {
+    // connection.query('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `imdb` DESC LIMIT 5', function(err, results) {
+    //     if (err) throw err;
+    //     const topRatedMovies = results;
+    //     connection.query('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `releaseDate` DESC LIMIT 5', function(err, results) {
+    //         if (err) throw err;
+    //         const nowPlayingMovies = results;
+    //         res.render('index', {topRatedMovies, nowPlayingMovies});
+    //     })
+    // });
+    const conn = await connection();
+    const topRatedMovies = await conn.execute('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `imdb` DESC LIMIT 5');
+    const nowPlayingMovies = await conn.execute('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `releaseDate` DESC LIMIT 5');
+    console.log({topRatedMovies, nowPlayingMovies});
+    res.render('index', {topRatedMovies, nowPlayingMovies});
 });
 
 passport.use(new LocalStrategy(
-    function(username ,password, done) {
-        const connection = require('./models/dbconnection');
+    async function(username ,password, done) {
 
         connection.query('SELECT userId, password FROM users WHERE username = ?', [username], function(err, results, fields) {
             if (err) return done(err);
