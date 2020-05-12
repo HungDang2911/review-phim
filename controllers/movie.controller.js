@@ -12,7 +12,6 @@ module.exports.getMovieById = (req, res) => {
             })
         });
     })
-<<<<<<< HEAD
 
     const movie = await connection.execute('SELECT `movieName`,`genre`,`releaseDate`,`movieTime`,`trailerLink`,`posterLink`,`imdb`,`rottenTomatoes`,`metacritic`,`movieDescription` FROM `movies` WHERE `movieId` = (?)', [movieId]);
     const actors = await connection.execute('SELECT actors.actorId,`actorName`,`imageLink` FROM `actors` LEFT JOIN `movies_actors` ON actors.actorId = movies_actors.actorId WHERE movies_actors.movieId = (?)', [movieId]);
@@ -24,6 +23,3 @@ module.exports.getMovieById = (req, res) => {
 module.exports.postCommentAboutMovie = (req, res) => {
 
 };
-=======
-}
->>>>>>> parent of 83d26ea... Change db query to promise
