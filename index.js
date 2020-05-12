@@ -53,20 +53,20 @@ app.use('/users', userRoute);
 app.use('/movies', movieRoute);
 
 app.get('/', async function(req, res) {
-    // connection.query('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `imdb` DESC LIMIT 5', function(err, results) {
-    //     if (err) throw err;
-    //     const topRatedMovies = results;
-    //     connection.query('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `releaseDate` DESC LIMIT 5', function(err, results) {
-    //         if (err) throw err;
-    //         const nowPlayingMovies = results;
-    //         res.render('index', {topRatedMovies, nowPlayingMovies});
-    //     })
-    // });
-    const conn = await connection();
-    const topRatedMovies = await conn.execute('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `imdb` DESC LIMIT 5');
-    const nowPlayingMovies = await conn.execute('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `releaseDate` DESC LIMIT 5');
-    console.log({topRatedMovies, nowPlayingMovies});
-    res.render('index', {topRatedMovies, nowPlayingMovies});
+    connection.query('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `imdb` DESC LIMIT 5', function(err, results) {
+        if (err) throw err;
+        const topRatedMovies = results;
+        connection.query('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `releaseDate` DESC LIMIT 5', function(err, results) {
+            if (err) throw err;
+            const nowPlayingMovies = results;
+            res.render('index', {topRatedMovies, nowPlayingMovies});
+        })
+    });
+    // const conn = await connection();
+    // const topRatedMovies = await conn.execute('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `imdb` DESC LIMIT 5');
+    // const nowPlayingMovies = await conn.execute('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `releaseDate` DESC LIMIT 5');
+    // console.log({topRatedMovies, nowPlayingMovies});
+    // res.render('index', {topRatedMovies, nowPlayingMovies});
 });
 
 passport.use(new LocalStrategy(
