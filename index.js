@@ -53,40 +53,44 @@ app.use('/users', userRoute);
 app.use('/movies', movieRoute);
 
 app.get('/', async function(req, res) {
-    connection.query('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `imdb` DESC LIMIT 5', function(err, results) {
-        if (err) throw err;
-        const topRatedMovies = results;
-        connection.query('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `releaseDate` DESC LIMIT 5', function(err, results) {
-            if (err) throw err;
-            const nowPlayingMovies = results;
-            res.render('index', {topRatedMovies, nowPlayingMovies});
-        })
-    });
-    // const conn = await connection();
-    // const topRatedMovies = await conn.execute('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `imdb` DESC LIMIT 5');
-    // const nowPlayingMovies = await conn.execute('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `releaseDate` DESC LIMIT 5');
-    // console.log({topRatedMovies, nowPlayingMovies});
-    // res.render('index', {topRatedMovies, nowPlayingMovies});
+    try {
+        const [topRatedMovies,] = await connection.execute('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `imdb` DESC LIMIT 5');
+        const [nowPlayingMovies,] = await connection.execute('SELECT `movieId`,`movieName`,`posterLink` FROM `movies` ORDER BY `releaseDate` DESC LIMIT 5');
+        res.render('index', {topRatedMovies, nowPlayingMovies});
+    } catch(e) {
+        throw e;
+    }
 });
 
 passport.use(new LocalStrategy(
     async function(username ,password, done) {
+        const [[user],] = await connection.execute('SELECT userId, password FROM users WHERE username = ?', [username]);
 
-        connection.query('SELECT userId, password FROM users WHERE username = ?', [username], function(err, results, fields) {
-            if (err) return done(err);
-            if (results.length === 0) return done(null, false);
+        if (!user) return done(null, false);
 
-            const hash = results[0].password;
+        const userId = user.userId;
+        const hash = user.password;
 
-            bcrypt.compare(password, hash, function(err, response) {
-                if (response === true) {
-                    return done(null, {userId: results[0].userId});
-                } else {
-                    return done(null, false);
-                }
-            })
-        })
+        const isMatched = await bcrypt.compare(password, hash);
 
+        if (isMatched) return done(null, {userId});
+        else return done(null, false);
+        
+
+        // connection.query('SELECT userId, password FROM users WHERE username = ?', [username], function(err, results, fields) {
+        //     if (err) return done(err);
+        //     if (results.length === 0) return done(null, false);
+
+        //     const hash = results[0].password;
+
+        //     bcrypt.compare(password, hash, function(err, response) {
+        //         if (response === true) {
+        //             return done(null, {userId: results[0].userId});
+        //         } else {
+        //             return done(null, false);
+        //         }
+        //     })
+        // })
     }
 ))
 

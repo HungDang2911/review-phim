@@ -1,8 +1,5 @@
 const express = require('express');
-const bcrypt = require('bcrypt');
-const connection = require("../models/dbconnection");
 const validate = require("../validate/user.validate");
-const auth = require('../middlewares/auth.middleware');
 const passport = require('passport');
 const controller = require('../controllers/user.controller')
 
@@ -19,9 +16,7 @@ router.post('/login', validate.validateLogin, validate.handleErrors, passport.au
 
 router.get('/logout', controller.getLogout);
 
-router.get('/register', function(req, res) {
-    res.render('users/register');
-});
+router.get('/register', controller.getRegister);
 
 
 router.post('/register', validate.validateRegister, validate.handleErrors, controller.postRegister);

@@ -1,23 +1,15 @@
 const connection = require('./dbconnection');
 
 module.exports = {
-    create: function(email, username, password, callback) {
-        connection
-    },
+    create: (email, username, hash) => connection.execute('INSERT INTO users(username, password, email) VALUES (?, ?, ?)', [username, hash, email]),
 
-    getAll: function(callback) {
-        connection.query('SELECT * FROM `users`', callback);
-    },
+    getAll: () => connection.execute('SELECT * FROM `users`'),
 
-    getById: function(id, callback) {
-        connection.query('SELECT * FROM users WHERE userId = ?', [id], callback);
-    },
+    getById: (id) => connection.execute('SELECT * FROM users WHERE userId = ?', [id]),
 
-    getByName: function(name, callback) {
-        connection.query('SELECT * FROM `users` WHERE `username` = (?)')
-    },
+    getByName: (name) => connection.execute('SELECT * FROM `users` WHERE `username` = (?)'),
 
-    delete: function(id, callback) {
-        connection.query('DELETE FROM `users` WHERE `id` = (?)', [id], callback);
-    }
+    getLastInsert: () => connection.execute('SELECT LAST_INSERT_ID() AS userId'),
+
+    delete: (id) => connection.execute('DELETE FROM `users` WHERE `id` = (?)', [id])
 };
