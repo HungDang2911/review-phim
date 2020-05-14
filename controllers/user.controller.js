@@ -1,69 +1,45 @@
 const bcrypt = require('bcrypt');
-const connection = require("../models/dbconnection");
 const passport = require('passport');
-const saltRounds = 10;
 const model = require('../models/user.model');
 
+const saltRounds = 10;
+
 module.exports.getLogin = (req, res) => {
-    res.render('users/login');
-};
-
-module.exports.postLogin = async (req, res) => {
-    try {
-        const userId = await connection.execute('SELECT userId FROM `users` WHERE `username` = (?)');
-    } catch (e) {
-    }
-    
-
-    req.login(userId, err => {
-        if (err) throw err;
-        res.redirect('/');
-    })
+  res.render('users/login');
 };
 
 module.exports.getLogout = (req, res) => {
-    req.logout();
-    req.session.destroy();
-    res.redirect('/');
-}
+  req.logout();
+  req.session.destroy();
+  res.redirect('/');
+};
 
 module.exports.getRegister = async (req, res) => {
-    res.render('users/register');
+  res.render('users/register');
 };
 
 module.exports.postRegister = async (req, res) => {
-    const email = req.body.email;
-    const username = req.body.username;
-    const password = req.body.password;
+  const { email, username, password } = req.body;
 
-    try {
-        const hash = await bcrypt.hash(password, saltRounds);
-        await model.create(email, username, hash);
-        const [[userId],] = await model.getLastInsert();
-        req.login(userId, err => {
-            if (err) throw err;
-            res.redirect('/');
-        })
-    } catch (e) {
-    }
+  const hash = await bcrypt.hash(password, saltRounds);
+  await model.create(email, username, hash);
+  const [[userId]] = await model.getLastInsert();
+  req.login(userId, (err) => {
+    if (err) throw err;
+    res.redirect('/');
+  });
 };
 
 module.exports.getProfile = async (req, res) => {
-    const userId = req.user.userId;
-    try {
-        const [[user],] = await model.getById(userId);
-        res.render('users/profile', user);
-    } catch(e) {
-    }
-}
+  const { userId } = req.user;
+  const [[user]] = await model.getById(userId);
+  res.render('users/profile', user);
+};
 
-passport.serializeUser(function(userId, done) {
-    done(null, userId);
+passport.serializeUser((userId, done) => {
+  done(null, userId);
 });
 
-passport.deserializeUser(function(userId, done) {
-    done(null, userId);
+passport.deserializeUser((userId, done) => {
+  done(null, userId);
 });
-
-
-

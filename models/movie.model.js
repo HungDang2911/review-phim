@@ -1,40 +1,44 @@
 const connection = require('./dbconnection');
 
 module.exports = {
-    create: function(movie, callback) {
-        connection.query('INSERT INTO movies (movieName, genre, releaseDate, movieTime, trailerLink, movieDescription) VALUES (?, ?, ?, ?, ?, ?)',
-        [movie.name, movie.genre, movie.releaseDate, movie.time, movie.trailerLink, movie.description],
-        callback);
-    },
+  create: (movie) => {
+    connection.execute(
+      'INSERT INTO movies (movieName, genre, releaseDate, movieTime, trailerLink, movieDescription) VALUES (?, ?, ?, ?, ?, ?)',
+      [
+        movie.name,
+        movie.genre,
+        movie.releaseDate,
+        movie.time,
+        movie.trailerLink,
+        movie.description,
+      ]
+    );
+  },
 
-    getAll: function(callback) {
-        connection.query('SELECT * FROM `users`', callback);
-    },
+  createComment: (movieId, comment) => connection.execute('INSERT INTO moviecomments (movieId, userId, ')
 
-    getById: function(id, callback) {
-        connection.query('SELECT * FROM movies WHERE movieId = ?', [id], function(err, results) {
-            if (err) throw err;
-            const movie = results[0];
+  getAll: () => connection.execute('SELECT * FROM `movies'),
 
-            connection.query('SELECT actors.actorId,`actorName`,`imageLink` FROM `actors` LEFT JOIN `movies_actors` ON actors.actorId = movies_actors.actorId WHERE movies_actors.movieId = (?)',
-            [id], function(err, results) {
-                if (err) throw err;
-                const actors = results;
+  getById: (id) =>
+    connection.execute('SELECT * FROM movies WHERE movieId = ?', [id]),
 
-                callback();
-            });
-        });
-    },
+  getActorsByMovieId: (movieId) =>
+    connection.execute(
+      'SELECT actors.actorId,`actorName`,`imageLink` FROM `actors` LEFT JOIN `movies_actors` ON actors.actorId = movies_actors.actorId WHERE movies_actors.movieId = (?)',
+      [movieId]
+    ),
 
-    getGenre: function(callback) {
-        connection.query('SELECT * FROM moviegenres', callback);
-    },
+  getDirectorsByMovieId: (movieId) =>
+    connection.execute(
+      'SELECT directors.directorId,`directorName`,`imageLink` FROM `directors` LEFT JOIN `movies_directors` ON directors.directorId = movies_directors.directorId WHERE movies_directors.movieId = (?)',
+      [movieId]
+    ),
 
-    getByName: function(name, callback) {
-        // connection.query('SELECT * FROM `users` WHERE `username` = (?)')
-    },
+  getGenre: () => connection.query('SELECT * FROM moviegenres'),
 
-    delete: function(id, callback) {
-        connection.query('DELETE FROM `users` WHERE `id` = (?)', [id], callback);
-    }
+  getByName: (name) =>
+    connection.execute('SELECT * FROM `movies` WHERE movieName = ?', [name]),
+
+  delete: (id) =>
+    connection.query('DELETE FROM `users` WHERE `id` = (?)', [id]),
 };
