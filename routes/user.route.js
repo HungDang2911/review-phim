@@ -1,6 +1,6 @@
 const express = require('express');
-const validate = require("../validate/user.validate");
 const passport = require('passport');
+const validate = require("../validate/user.validate");
 const controller = require('../controllers/user.controller')
 
 const router = express.Router();

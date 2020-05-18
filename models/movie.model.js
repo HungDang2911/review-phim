@@ -15,12 +15,19 @@ module.exports = {
     );
   },
 
-  createComment: (movieId, comment) => connection.execute('INSERT INTO moviecomments (movieId, userId, ')
+  createComment: (comment) =>
+    connection.execute(
+      'INSERT INTO moviecomments (movieId, userId, commentDate, commentContent) VALUES (?, ?, ?, ?)',
+      [comment.movieId, comment.userId, comment.commentDate, comment.commentContent]
+    ),
 
   getAll: () => connection.execute('SELECT * FROM `movies'),
 
   getById: (id) =>
     connection.execute('SELECT * FROM movies WHERE movieId = ?', [id]),
+
+  getByName: (name) =>
+    connection.execute('SELECT * FROM `movies` WHERE movieName = ?', [name]),
 
   getActorsByMovieId: (movieId) =>
     connection.execute(
@@ -36,8 +43,11 @@ module.exports = {
 
   getGenre: () => connection.query('SELECT * FROM moviegenres'),
 
-  getByName: (name) =>
-    connection.execute('SELECT * FROM `movies` WHERE movieName = ?', [name]),
+  getCommentsByMovieId: (movieId) =>
+    connection.execute(
+      'SELECT * FROM moviecomments WHERE movieId = ? ORDER BY commentDate DESC',
+      [movieId]
+    ),
 
   delete: (id) =>
     connection.query('DELETE FROM `users` WHERE `id` = (?)', [id]),

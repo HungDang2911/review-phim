@@ -15,6 +15,8 @@ module.exports = {
   getByName: (name) =>
     connection.execute('SELECT * FROM `users` WHERE `username` = (?)', [name]),
 
+  getNameById: (id) => connection.execute('SELECT `username` FROM users WHERE userId = ?', [id]),
+
   getLastInsert: () => connection.execute('SELECT LAST_INSERT_ID() AS userId'),
 
   delete: (id) =>
