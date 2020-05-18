@@ -12,8 +12,6 @@ module.exports.getMovie = async (req, res) => {
       comments[i].username = username;
     }
 
-  console.log(comments);
-
   res.render('movie', { movie, actors, directors, comments });
 };
 
