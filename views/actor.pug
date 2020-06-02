@@ -1,0 +1,42 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet', href='/vendors/bootstrap-4.4.1-dist/css/bootstrap.min.css')
+  link(rel='stylesheet', href='/vendors/fontawesome-free-5.13.0-web/css/all.min.css')
+  link(rel='stylesheet', href='/vendors/fontawesome-free-5.13.0-web/css/fontawesome.min.css')
+  link(rel='stylesheet', href='/stylesheets/movie.css')
+  title #{actor.actorName} - ReviewPhim
+include navbar
+section.about-the-movie
+  .container.about-the-movie-wrapper
+    h2
+      i.fa.fa-question-circle(aria-hidden='true')
+    h2.section-title-black #{actor.actorName}
+    .d-flex.flex-xl-row.flex-column.movie
+      .poster-container
+        img.poster.img-fluid(src=actor.imageLink, alt='')
+      .movie-info.ml-4.p-2
+        .movie-general-info.my-5
+          span.movie-info-index.px-2 Gender:
+          span.movie-release-date #{actor.gender}
+          br
+        .movie-general-info.my-5
+          span.movie-info-index.px-2 Date Of Birth:
+          span.movie-release-date #{actor.dateOfBirth}
+          br
+section.directors
+  .container.directors-wrapper.py-1
+    h2
+      i.fas.fa-user-circle
+    h2.section-title-black ATTENDED MOVIES
+    .container
+      .row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.row-cols-xl-4.actors-grid
+        each movie in movies
+          .col.text-center.person-card.mb-5
+            .person-card-wrapper
+              img.img-fluid.mx-auto.person-picture(src=movie.posterLink, alt='')
+              span.person-name= movie.movieName
+              a.person-card-overlay(href='/movies/' + movie.movieId)
+include footer
+script(src='/movie.js')

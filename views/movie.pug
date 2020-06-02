@@ -6,7 +6,7 @@ head
   link(rel='stylesheet', href='/vendors/fontawesome-free-5.13.0-web/css/all.min.css')
   link(rel='stylesheet', href='/vendors/fontawesome-free-5.13.0-web/css/fontawesome.min.css')
   link(rel='stylesheet', href='/stylesheets/movie.css')
-  title ReviewPhim
+  title #{movie.movieName} - ReviewPhim
 include navbar
 section.about-the-movie
   .container.about-the-movie-wrapper
@@ -47,7 +47,7 @@ section.directors
             .person-card-wrapper
               img.img-fluid.mx-auto.person-picture(src=director.imageLink, alt='')
               span.person-name= director.directorName
-              a.person-card-overlay(href='#')
+              a.person-card-overlay(href='/directors/' + director.directorId)
 section.actors
   .container.actors-wrapper.py-1
     h2
@@ -60,7 +60,7 @@ section.actors
             .person-card-wrapper
               img.img-fluid.mx-auto.person-picture(src=actor.imageLink, alt='')
               span.person-name= actor.actorName
-              a.person-card-overlay(href='#')
+              a.person-card-overlay(href='/actors/' + actor.actorId)
 section.reviews
   .container.reviews-wrapper.py-1
     h2

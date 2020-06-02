@@ -10,9 +10,9 @@ const bcrypt = require('bcrypt');
 const connection = require('./models/dbconnection');
 const adminRoute = require('./routes/admin.route');
 const userRoute = require('./routes/user.route');
-// const actorRoute = require('./routes/actor.route');
+const actorRoute = require('./routes/actor.route');
 const movieRoute = require('./routes/movie.route');
-// const directorRoute = require('./routes/director.route');
+const directorRoute = require('./routes/director.route');
 const port = process.env.PORT || 3000;
 const options = {
   host: process.env.DB_HOST,
@@ -49,8 +49,8 @@ app.use((req, res, next) => {
 // Routes
 app.use('/admin', adminRoute);
 app.use('/users', userRoute);
-// app.use('/directors', directorRoute);
-// app.use('/actors', actorRoute);
+app.use('/directors', directorRoute);
+app.use('/actors', actorRoute);
 app.use('/movies', movieRoute);
 
 app.get('/', async (req, res) => {
@@ -64,7 +64,7 @@ app.get('/', async (req, res) => {
 });
 
 passport.use(
-  new LocalStrategy(async function (username, password, done) {
+  new LocalStrategy(async (username, password, done) => {
     const [
       [user],
     ] = await connection.execute(

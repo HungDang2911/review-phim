@@ -41,7 +41,7 @@ module.exports = {
       [movieId]
     ),
 
-  getGenre: () => connection.query('SELECT * FROM moviegenres'),
+  getGenres: () => connection.query('SELECT * FROM moviegenres'),
 
   getCommentsByMovieId: (movieId) =>
     connection.execute(

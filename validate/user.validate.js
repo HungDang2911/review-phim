@@ -15,9 +15,9 @@ module.exports.validateLogin = [
 ]
 
 module.exports.handleErrors = (req, res, next) => {
-    let errors = validationResult(req).array();
+    const errors = validationResult(req).array();
     if (errors === undefined || errors.length) {
-        let errorMessages = errors.map(field => field['msg']);
+        const errorMessages = errors.map(field => field.msg);
         res.render(`users${req.url}`, {
             errors: errorMessages
         });
